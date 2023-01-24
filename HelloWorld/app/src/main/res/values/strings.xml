@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Luis Castillo</string>
+    <string name="Saludo">HelloWorld</string>
+    <string name="Despedida">ByeBye</string>
+</resources>

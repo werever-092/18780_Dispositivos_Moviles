@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Buttoms</string>
+    <string name="frase">Escribe tu frase</string>
+    <string name="mostrar_msj">MOSTRAR</string>
+</resources>
