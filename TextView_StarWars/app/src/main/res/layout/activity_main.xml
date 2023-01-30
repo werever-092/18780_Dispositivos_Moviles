@@ -13,6 +13,7 @@
         android:layout_height="269dp"
         android:rotationX="50"
         android:text="@string/tvsw"
+        android:fontFamily="@font/starjedi"
         android:textAlignment="center"
         android:textColor="@color/ySW"
         android:textSize="24sp"
