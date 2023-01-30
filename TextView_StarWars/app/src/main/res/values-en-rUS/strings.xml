@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TextView_StarWars</string>
+    <string name="tvsw">No. Do. or do not. There is no try. -Master Yoda</string>
+</resources>

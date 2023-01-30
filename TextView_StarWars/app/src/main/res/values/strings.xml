@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">TextView_StarWars</string>
+    <string name="app_name" translatable="false">TextView_StarWars</string>
+    <string name="tvsw">No. No lo intentes. Hazlo, o no lo hagas, pero no lo intentes. -Maestro Yoda</string>
 </resources>
