@@ -15,8 +15,7 @@ class MainActivity : AppCompatActivity() {
         et_Score = findViewById(R.id.etScore)
         var bnScore = findViewById<Button>(R.id.bnSend)
         bnScore.setOnClickListener {
-            var Score : String
-            if (getScore() < "6") {
+            if (getScore() < 6.9) {
 
             } else {
                 var i = Intent(this, SecondActivity :: class.java)
@@ -27,8 +26,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getScore() : String {
-        return et_Score.text.toString()
+    private fun getScore() : Float {
+        return et_Score.text.toString().toFloat()
     }
 
     private fun Score() : String {
