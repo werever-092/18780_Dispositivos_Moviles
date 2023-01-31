@@ -8,6 +8,7 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var et_Score : TextView
+    private var changeScreen : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
