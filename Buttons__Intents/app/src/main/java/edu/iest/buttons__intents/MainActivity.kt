@@ -8,7 +8,6 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var et_Score : TextView
-    private var changeScreen : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,21 +16,21 @@ class MainActivity : AppCompatActivity() {
         var bnScore = findViewById<Button>(R.id.bnSend)
         bnScore.setOnClickListener {
             if (getScore() < 6.9) {
-
+                var i = Intent(this, ThirdActivity :: class.java)
+                i.putExtra("Score", getScore())
+                startActivity(i)
+                finish()
             } else {
                 var i = Intent(this, SecondActivity :: class.java)
                 i.putExtra("Score", getScore())
                 startActivity(i)
                 finish()
             }
+
         }
     }
 
     private fun getScore() : Float {
         return et_Score.text.toString().toFloat()
-    }
-
-    private fun Score() : String {
-
     }
 }
