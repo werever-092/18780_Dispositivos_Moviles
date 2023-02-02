@@ -32,5 +32,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun getScore() : Float {
         return et_Score.text.toString().toFloat()
+        ?
     }
 }
