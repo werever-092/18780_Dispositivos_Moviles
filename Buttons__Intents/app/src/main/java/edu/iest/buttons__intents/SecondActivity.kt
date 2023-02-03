@@ -1,7 +1,9 @@
 package edu.iest.buttons__intents
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 
 class SecondActivity : AppCompatActivity() {
@@ -9,8 +11,14 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        val iRec = intent.getStringExtra("Score")
+        var iRec = intent.getStringExtra("Score")
         val tvScore = findViewById<TextView>(R.id.tvFscore)
-        tvScore.setText("Score", "Felicidades Aprobaste con $iRec" )
+        tvScore.text = "Felicidades Aprobaste la materia con $iRec"
+
+        var bnBack = findViewById<Button>(R.id.bnBack)
+        bnBack.setOnClickListener {
+            startActivity(Intent(this, MainActivity :: class.java))
+            finish()
+        }
     }
 }

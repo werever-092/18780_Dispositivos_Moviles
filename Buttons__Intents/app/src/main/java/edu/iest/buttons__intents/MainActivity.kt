@@ -15,22 +15,18 @@ class MainActivity : AppCompatActivity() {
         et_Score = findViewById(R.id.etScore)
         var bnScore = findViewById<Button>(R.id.bnSend)
         bnScore.setOnClickListener {
-            if (getScore() < 6.9) {
-                var i = Intent(this, ThirdActivity :: class.java)
-                i.putExtra("Score", getScore())
-                startActivity(i)
+            if (getScore() <= "6.99") {
+                startActivity(Intent(this, ThirdActivity :: class.java).putExtra("Score", getScore()))
                 finish()
             } else {
-                var i = Intent(this, SecondActivity :: class.java)
-                i.putExtra("Score", getScore())
-                startActivity(i)
+                startActivity(Intent(this, SecondActivity :: class.java).putExtra("Score", getScore()))
                 finish()
             }
 
         }
     }
 
-    private fun getScore() : Float {
-        return et_Score.text.toString().toFloat()
+    private fun getScore() : String {
+        return et_Score.text.toString()
     }
 }
