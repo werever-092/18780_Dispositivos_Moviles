@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bckColor">#f0f2a6</color>
     <color name="bnColor">#231123</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
 </resources>

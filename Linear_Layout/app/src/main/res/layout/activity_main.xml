@@ -13,25 +13,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/numeo_uno"
+        android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etNumeroPrimero"
+        android:id="@+id/etFirstNum"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:inputType="number" />
 
     <TextView
         android:text="@string/numero_dos"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"/>
 
     <EditText
-        android:id="@+id/etNumeroSegundo"
+        android:id="@+id/etSecondNum"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:inputType="number" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -41,11 +49,12 @@
 
         <Button
             android:id="@+id/bnSuma"
-            android:text="@string/suma"
-            android:layout_marginRight="6dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/bnColor"/>
+            android:layout_marginRight="6dp"
+            android:backgroundTint="@color/bnColor"
+            android:text="@string/suma"
+            android:textColor="@color/colorWhite" />
 
         <Button
             android:id="@+id/bnResta"
@@ -53,10 +62,39 @@
             android:layout_marginLeft="6dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/bnColor"/>
-
-
-
+            android:backgroundTint="@color/bnColor"
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/bnMult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:backgroundTint="@color/bnColor"
+            android:text="Multiplicación"
+            android:textColor="@color/colorWhite" />
+
+        <Button
+            android:id="@+id/bnDiv"
+            android:text="division"
+            android:layout_marginLeft="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bnColor"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="134dp"
+        android:layout_height="110dp"
+        app:srcCompat="@drawable/werever" />
 
 </LinearLayout>
