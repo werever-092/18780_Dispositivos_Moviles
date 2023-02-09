@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.bnSuma -> {
                 if (firstNum != null && secondNum != null) {
                     val plus = arit.plus(firstNum, secondNum)
-                    val msg = Mensajes("La suma es $plus", this)
+                    val msg = Mensajes("La suma es $plus", this@MainActivity)
                     msg.showToast()
                 } else {
                     Toast.makeText(this, "No asignaste ningun número", Toast.LENGTH_LONG).show()
