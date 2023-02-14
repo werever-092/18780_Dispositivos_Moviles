@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Programas">
+        <item>KND: Los Chicos del Barrio</tem>
+        <item>Los Jovenes Titanes</item>
+        <item>Un Show Más</item>
+    </string-array>
+</resources>
