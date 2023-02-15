@@ -11,6 +11,8 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var bnSuma : Button? = null
     private var bnResta : Button? = null
+    private var bnMulti : Button? = null
+    private var bnDiv : Button? = null
     private var etFirstNum : EditText? = null
     private var etSecondNum : EditText? = null
 
@@ -25,6 +27,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun startViews() {
         bnSuma = findViewById(R.id.bnSuma)
         bnResta = findViewById(R.id.bnResta)
+        bnMulti = findViewById(R.id.bnMult)
+        bnDiv = findViewById(R.id.bnDiv)
         etFirstNum = findViewById(R.id.etFirstNum)
         etSecondNum = findViewById(R.id.etSecondNum)
     }
@@ -32,6 +36,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun eventAssing() {
         bnSuma?.setOnClickListener(this)
         bnResta?.setOnClickListener(this)
+        bnMulti?.setOnClickListener(this)
+        bnDiv?.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -43,8 +49,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.bnSuma -> {
                 if (firstNum != null && secondNum != null) {
                     val plus = arit.plus(firstNum, secondNum)
-                    val msg = Mensajes("La suma es $plus", this@MainActivity)
-                    msg.showToast()
+                    val msg = Mensajes("La suma es $plus")
+                    msg.showToast(this@MainActivity)
                 } else {
                     Toast.makeText(this, "No asignaste ningun número", Toast.LENGTH_LONG).show()
 
@@ -52,8 +58,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.bnResta -> {
                 if (firstNum != null && secondNum != null) {
-                    val minus = arit.plus(firstNum, secondNum)
-                    Snackbar.make(p0, "El resultado de la resta es $minus", Snackbar.LENGTH_LONG).show()
+                    val minus = arit.minus(firstNum, secondNum)
+                    val msg = Mensajes("La resta es $minus")
+                    msg.showToast(this@MainActivity)
+                } else {
+                    Snackbar.make(p0, "No asignaste ninun número", Snackbar.LENGTH_LONG).show()
+                }
+            }
+            R.id.bnMult -> {
+                if (firstNum != null && secondNum != null) {
+                    val minus = arit.mult(firstNum, secondNum)
+                    val msg = Mensajes("La resta es $minus")
+                    msg.showToast(this@MainActivity)
+                } else {
+                    Snackbar.make(p0, "No asignaste ninun número", Snackbar.LENGTH_LONG).show()
+                }
+            }
+            R.id.bnDiv -> {
+                if (firstNum != null && secondNum != null) {
+                    val minus = arit.div(firstNum, secondNum)
+                    val msg = Mensajes("La resta es $minus")
+                    msg.showToast(this@MainActivity)
                 } else {
                     Snackbar.make(p0, "No asignaste ninun número", Snackbar.LENGTH_LONG).show()
                 }
