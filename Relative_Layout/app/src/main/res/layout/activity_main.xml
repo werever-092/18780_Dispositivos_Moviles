@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/bckColor">
 
     <ImageView
         android:id="@+id/ivContinued"
@@ -14,49 +15,67 @@
         android:text="Helllo World!"
         android:scaleType="fitXY"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp" />
 
     <TextView
-        android:id="@+id/tvChanel"
+        android:id="@+id/tvSync"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sintonizanos la proxima semana!"
         android:layout_centerInParent="true"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/txtColor" />
 
     <TextView
+        android:id="@+id/tvChannel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cartoon Network"
         android:layout_centerInParent="true"
-        android:layout_below="@id/tvChanel"
+        android:layout_below="@id/tvSync"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:textColor="@color/txtColor" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bnChanges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cambiar"
-        android:layout_above="@id/tvChanel"
+        android:background="@drawable/round"
+        android:layout_above="@id/tvSync"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/bnTxtColor"/>
 
     <EditText
+        android:id="@+id/etChannel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toStartOf="@id/bnChanges"
-        android:layout_above="@id/tvChanel"
+        android:layout_above="@id/tvSync"
         android:layout_alignTop="@id/bnChanges"
         android:layout_alignBottom="@id/bnChanges"/>
 
     <Spinner
+        android:id="@+id/spPrograms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        />
+        android:entries="@array/Programas"/>
+
+    <ImageView
+        android:layout_width="105dp"
+        android:layout_height="96dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@drawable/werever" />
 
 </RelativeLayout>
