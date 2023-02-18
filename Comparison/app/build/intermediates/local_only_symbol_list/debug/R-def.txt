@@ -1,0 +1,15 @@
+R_DEF: Internal format may change without notice
+local
+array myOpNums
+color bnColor
+dimen box_inset_layout_padding
+dimen inner_frame_layout_padding
+drawable round
+id bnComparison
+id spFirstNum
+id spSecondNum
+id tvComparison
+layout activity_watch
+mipmap ic_launcher
+string app_name
+string hello_world
