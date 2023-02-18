@@ -1,1 +1,0 @@
-C:\Users\luis-\AndroidStudioProjects\18780_Dispositivos_Moviles\Comparison\app\src\main\java\edu\iest\comparison\MainActivity.kt
