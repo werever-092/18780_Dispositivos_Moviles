@@ -2,6 +2,7 @@ package com.example.relative_layout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private ImageView ivContinued;
+    private Intent change;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     Toast.makeText(MainActivity.this, "El valor era " + text, Toast.LENGTH_SHORT).show();
                     tvChannel.setText(text);
                 }
+            }
+        });
+
+        ivContinued.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                change = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(change);
             }
         });
     }

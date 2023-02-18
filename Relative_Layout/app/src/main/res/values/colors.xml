@@ -11,4 +11,6 @@
     <color name="bckColor">#CDD6DD</color>
     <color name="txtColor">#CDACA1</color>
     <color name="bnTxtColor">#CDCACC</color>
+    <color name="tvColor">#DEC3BE</color>
+    <color name="tvTxtColor">#996888</color>
 </resources>
