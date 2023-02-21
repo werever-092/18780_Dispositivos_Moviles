@@ -4,41 +4,35 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Toast
-import edu.iest.comparison.databinding.ActivityWatchBinding
+import edu.iest.comparison.databinding.ActivityMainBinding
 
-class MainActivity : Activity(), AdapterView.OnItemSelectedListener {
+class MainActivity : Activity() {
 
-    private lateinit var binding: ActivityWatchBinding
-    private var selectText : String? = null
+    private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityWatchBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.tvComparison.text = "Hola Amiguito"
-        binding.bnComparison.text = "Enviar"
 
-        val adapter = ArrayAdapter.createFromResource(this, R.array.myOpNums,
-            android.R.layout.simple_spinner_item)
+        val adapter = ArrayAdapter.createFromResource(this, R.array.myNums, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         binding.spFirstNum.adapter = adapter
-        binding.spSecondNum.onItemSelectedListener = this
+        binding.spSecondNum.adapter = adapter
 
-
-
-        binding.bnComparison.setOnClickListener {
+        binding.bnChange.setOnClickListener {
             val alert = AlertDialog.Builder(this)
-            alert.setTitle("Atencion").setMessage("Quieres enviar el saludo $selectText")
+            alert.setTitle("Atencion").setMessage("Quieres comparar los dos numeos?")
                 .setCancelable(false)
                 .setPositiveButton("OK", DialogInterface.OnClickListener {
                         dialogInterface, i ->
-                    binding.tvComparison.text = selectText
+                    compNums()
                 })
                 .setNegativeButton("Cancelar", DialogInterface.OnClickListener{
                         dialogInterface, i ->
@@ -46,14 +40,19 @@ class MainActivity : Activity(), AdapterView.OnItemSelectedListener {
                 })
                 .show()
         }
+
     }
 
-    override fun onItemSelected(primaryView: AdapterView<*>?, viewRow: View?, position: Int, idView: Long) {
-        selectText = primaryView?.getItemAtPosition(position).toString()
-        Toast.makeText(this, "Elegiste $selectText", Toast.LENGTH_LONG).show()
-    }
+    private fun compNums () {
+        val num1 = binding.spFirstNum.selectedItem.toString().toInt()
+        val num2 = binding.spSecondNum.selectedItem.toString().toInt()
 
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
+        if (num1 == num2) {
+            Toast.makeText(this, "Los valores son iguales", Toast.LENGTH_LONG).show()
+        } else if (num1 > num2) {
+            Toast.makeText(this, "$num1 es mayor", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "$num2 es mayor", Toast.LENGTH_LONG).show()
+        }
     }
 }
