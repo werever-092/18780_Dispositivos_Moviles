@@ -18,6 +18,9 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private ImageView ivContinued;
+    private Spinner spPrograms;
+    private String text;
+    private String program;
     private Intent change;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         EditText etChannel = findViewById(R.id.etChannel);
         TextView tvChannel = findViewById(R.id.tvChannel);
 
-        Spinner spPrograms = findViewById(R.id.spPrograms);
+        spPrograms = findViewById(R.id.spPrograms);
         ivContinued = findViewById(R.id.ivContinued);
 
         spPrograms.setOnItemSelectedListener(this);
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                String text = etChannel.getText().toString();
+                text = etChannel.getText().toString();
                 if (text.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Escribe en la parte de arriba", Toast.LENGTH_SHORT).show();
                 } else {
@@ -49,7 +52,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
                 change = new Intent(MainActivity.this, SecondActivity.class);
+                change.putExtra("Programas", program);
+                change.putExtra("Canal", text);
                 startActivity(change);
+
             }
         });
     }
@@ -57,8 +63,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-        String program = adapterView.getItemAtPosition(i).toString();
-        Snackbar.make(adapterView, "Programa Seleccionado" + program, Snackbar.LENGTH_LONG).show();
+        program = adapterView.getItemAtPosition(i).toString();
+        Snackbar.make(adapterView, "Programa Seleccionado: " + program, Snackbar.LENGTH_LONG).show();
 
         if (i == 0) {
             ivContinued.setImageResource(R.drawable.backtofuturetbc);
