@@ -1,7 +1,9 @@
 package com.example.relative_layout;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,14 +24,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private String text;
     private String program;
     private Intent change;
+    private AlertDialog.Builder alert;
+    private TextView tvChannel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button bnChange = findViewById(R.id.bnChanges);
         EditText etChannel = findViewById(R.id.etChannel);
-        TextView tvChannel = findViewById(R.id.tvChannel);
 
+        tvChannel = findViewById(R.id.tvChannel);
         spPrograms = findViewById(R.id.spPrograms);
         ivContinued = findViewById(R.id.ivContinued);
 
@@ -51,11 +55,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ivContinued.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                change = new Intent(MainActivity.this, SecondActivity.class);
-                change.putExtra("Programas", program);
-                change.putExtra("Canal", text);
-                startActivity(change);
-
+                intent();
             }
         });
     }
@@ -77,6 +77,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+    private void intent() {
+        final CharSequence[] options = {"Ok", "Cancelar"};
+        alert = new AlertDialog.Builder(MainActivity.this);
+        alert.setTitle("Estas seguro de cambiar de pantalla?");
+        alert.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (options[i].equals("Ok")) {
+                    change = new Intent(MainActivity.this, SecondActivity.class);
+                    text = tvChannel.getText().toString();
+                    change.putExtra("Programa", program);
+                    change.putExtra("Canal", text);
+                    startActivity(change);
+                } else {
+                    dialogInterface.dismiss();
+                }
+
+            }
+        });
+        alert.show();
 
     }
 }

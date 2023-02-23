@@ -33,11 +33,11 @@
         android:id="@+id/tvChannel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cartoon Network"
-        android:layout_centerInParent="true"
         android:layout_below="@id/tvSync"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_centerInParent="true"
+        android:text="Cartoon Network"
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/txtColor" />
 
     <androidx.appcompat.widget.AppCompatButton

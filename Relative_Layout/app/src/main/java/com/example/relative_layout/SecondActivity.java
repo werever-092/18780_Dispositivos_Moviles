@@ -21,11 +21,11 @@ public class SecondActivity extends AppCompatActivity {
         TextView tvPrograms = findViewById(R.id.tvProgs);
         Button bnBack = findViewById(R.id.bnBack);
 
-         programs = getIntent().getStringExtra("Programas");
+         programs = getIntent().getStringExtra("Programa");
          channel = getIntent().getStringExtra("Canal");
 
-         tvChannel.setText(programs);
-         tvPrograms.setText(channel);
+         tvChannel.setText(channel);
+         tvPrograms.setText(programs);
 
          bnBack.setOnClickListener(new View.OnClickListener() {
              @Override

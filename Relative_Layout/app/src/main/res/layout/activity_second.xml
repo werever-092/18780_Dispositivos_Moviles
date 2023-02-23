@@ -57,7 +57,7 @@
         android:layout_width="match_parent">
 
         <TextView
-            android:text="Programas"
+            android:text="Programa"
             android:textAlignment="center"
             android:background="@color/tvColor"
             android:textColor="@color/tvTxtColor"
@@ -67,7 +67,7 @@
             android:id="@+id/tvProgs"
             android:textAlignment="center"
             android:background="@color/tvColor"
-            android:textColor="@color/txtColor"
+            android:textColor="@color/tvTxtColor"
             android:textStyle="bold" />
 
     </TableRow>
