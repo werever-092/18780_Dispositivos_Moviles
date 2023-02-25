@@ -2,6 +2,7 @@ package com.example.relative_layout;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         tvChannel = findViewById(R.id.tvChannel);
         spPrograms = findViewById(R.id.spPrograms);
         ivContinued = findViewById(R.id.ivContinued);
+
+        //Cambiar color desde codigo
+        //tvChannel.setBackgroundColor(ContextCompat.getColor(this, R.color.teal_700));
 
         spPrograms.setOnItemSelectedListener(this);
         bnChange.setOnClickListener(new View.OnClickListener() {
