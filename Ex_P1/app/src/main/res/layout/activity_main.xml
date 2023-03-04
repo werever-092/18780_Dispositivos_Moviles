@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvCineAlt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Cinépolis Altama"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:background="@color/bckColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCapital"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="La Capital del Cine"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/ivMovie"
+        android:layout_width="125dp"
+        android:layout_height="283dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCineAlt"
+        app:srcCompat="@drawable/unnamed" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Days of Thunder: Días de Trueno"
+        android:textStyle="bold"
+        android:textColor="@color/bckColor"
+        android:textSize="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintStart_toEndOf="@id/ivMovie"
+        app:layout_constraintTop_toBottomOf="@id/tvCineAlt"/>
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Days of Thunder: Días de Trueno"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintStart_toEndOf="@id/ivMovie"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
+
+    <TextView
+        android:id="@+id/tvClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PG-13"
+        android:textColor="@color/white"
+        android:background="#65647C"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:padding="5dp"
+        app:layout_constraintStart_toEndOf="@id/ivMovie"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"/>
+
+    <TextView
+        android:id="@+id/tvDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="108 min"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:padding="5dp"
+        app:layout_constraintStart_toEndOf="@id/tvClass"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"/>
+
+    <TextView
+        android:id="@+id/tvGen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accion, Drama"
+        android:textColor="@color/white"
+        android:background="@color/bckColor"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:padding="5dp"
+        app:layout_constraintStart_toEndOf="@id/tvDuration"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"/>
+
+    <TextView
+        android:id="@+id/tvSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Por favor seleccione un horario:"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintStart_toStartOf="@id/ivMovie"
+        app:layout_constraintTop_toBottomOf="@id/ivMovie"/>
+
+    <Spinner
+        android:id="@+id/spSched"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvSelect"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        />
+
+    <Button
+        android:id="@+id/bnChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comprar Boletos"
+        android:backgroundTint="#FED049"
+        android:textStyle="bold"
+        android:textColor="@color/bckColor"
+        app:layout_constraintBottom_toTopOf="@id/tvCapital"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spSched" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
