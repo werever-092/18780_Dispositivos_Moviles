@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">lostcanvas</string>
+    <string name="app_name">AIP</string>
     <string name="all">TODO</string>
     <string name="title_temperature">DHT11 Temperatura</string>
     <string name="subtitle_temperature">Firebase Kotlin</string>
