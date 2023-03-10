@@ -15,8 +15,8 @@ class CollectionAdapter(fm: FragmentActivity) :
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> TemperatureFragment()
-            1 -> HumidityFragment()
+            0 -> HumidityFragment()
+            1 -> TemperatureFragment()
             else -> throw IllegalStateException("Unexpected position $position")
         }
     }
