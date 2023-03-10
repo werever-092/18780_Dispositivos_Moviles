@@ -28,29 +28,19 @@ class HumidityFragment : Fragment() {
 
         val database = Firebase.database
         val databaseReference = database.reference
-        var state = 0
 
         val pbHum: ProgressBar = view.findViewById(R.id.pbHum)
         val tvHum: TextView = view.findViewById(R.id.tvHumidity)
-        val tbDHT11: ToggleButton = view.findViewById(R.id.tbDHT11)
 
         databaseReference.addValueEventListener(object : ValueEventListener {
             @SuppressLint("SetTextI18n")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 val value = dataSnapshot.child("humidity").getValue<Float>()
-                state = dataSnapshot.child("state").getValue<Int>()!!
 
                 pbHum.progress = value?.toInt() ?: 0
                 tvHum.text = "Humedad: "+value.toString()+" %"
 
-                if (state == 0) {
-                    tbDHT11.isChecked = false
-                    state = 1
-                } else {
-                    tbDHT11.isChecked = true
-                    state = 0
-                }
 
             }
 
@@ -58,14 +48,6 @@ class HumidityFragment : Fragment() {
                 Log.w("TAG", "Failed to read value.", error.toException())
             }
         })
-
-        tbDHT11.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                databaseReference.child("state").setValue(state)
-            } else {
-                databaseReference.child("state").setValue(0)
-            }
-        }
 
         return view
     }

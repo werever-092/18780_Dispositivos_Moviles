@@ -28,29 +28,19 @@ class TemperatureFragment : Fragment() {
 
         val database = Firebase.database
         val databaseReference = database.getReference()
-        var state = 0
 
         val pbTemp: ProgressBar = view.findViewById(R.id.pbTemperature)
         val tvTemp: TextView = view.findViewById(R.id.tvTemperature)
-        val tbDHT11: ToggleButton = view.findViewById(R.id.tbDHT11)
 
         databaseReference.addValueEventListener(object : ValueEventListener {
             @SuppressLint("SetTextI18n")
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 val value = dataSnapshot.child("temperature").getValue<Float>()
-                state = dataSnapshot.child("state").getValue<Int>()!!
 
                 pbTemp.progress = value?.toInt() ?: 0
                 tvTemp.text = "Temperatura: "+value.toString()+" C°"
 
-                if (state == 0) {
-                    tbDHT11.isChecked = false
-                    state = 1
-                } else {
-                    tbDHT11.isChecked = true
-                    state = 0
-                }
 
             }
 
@@ -59,13 +49,6 @@ class TemperatureFragment : Fragment() {
             }
         })
 
-        tbDHT11.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                databaseReference.child("state").setValue(state)
-            } else {
-                databaseReference.child("state").setValue(0)
-            }
-        }
 
         return view
     }
