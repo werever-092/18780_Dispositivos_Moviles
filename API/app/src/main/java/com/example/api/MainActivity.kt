@@ -2,10 +2,12 @@ package com.example.api
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.example.api.models.ImageBreed
 import com.example.api.models.ImageRandom
 import com.example.api.network.API
 import retrofit2.Call
@@ -43,6 +45,24 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.optMenuListIMG) {
             Toast.makeText(this, "OPTION menu 1", Toast.LENGTH_SHORT).show()
+            val apiCall = API().createAPIService()
+            apiCall.listImagesBreeds("hound").enqueue(object: Callback<ImageBreed> {
+                override fun onResponse(call: Call<ImageBreed>, response: Response<ImageBreed>) {
+
+                    val dogs = response.body()?.message
+                    Log.d("PRUEBAS", "Status de la respuesta ${response.body()?.status}")
+                    if (dogs != null) {
+                        for (dog in dogs) {
+                            Log.d("PRUEBAS", "Perro es $dog")
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ImageBreed>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            })
         }
         return super.onOptionsItemSelected(item)
     }
