@@ -25,7 +25,7 @@
                 android:orientation="vertical"
                 >
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                     android:id="@+id/ivCat"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
@@ -104,7 +104,7 @@
                 android:orientation="vertical"
                 >
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                     android:id="@+id/ivExit"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
