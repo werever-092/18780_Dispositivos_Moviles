@@ -1,6 +1,7 @@
 package com.example.games
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -18,12 +19,21 @@ import androidx.appcompat.app.ActionBar
 class MainActivity : AppCompatActivity() {
     private lateinit var tvWelcome: TextView
     private lateinit var etName: EditText
+    private lateinit var etnAge: EditText
+    private lateinit var etHeight: EditText
+    private lateinit var etWallet: EditText
     private lateinit var bnSave: Button
-    private lateinit var swToggle: Switch
-    private val NAME_KEY = "name"
-    private val SWITCH_KEY = "switch_status"
-    private val NAME_INSTANCE = "name_instance"
+    private lateinit var switchPrefs: Switch
+    private val NAME_KEY = "nombre"
+    private val AGE_KEY = "edad"
+    private val HEIGHT_KEY = "altura"
+    private val WALLET_KEY = "monedero"
+    private val SWITCH_KEY = "switch_estado"
+    private val NAME_INSTANCE = "nombre_instancia"
     private var name: String = ""
+    private var age: Int = 0
+    private var height: Float = 0.0f
+    private var wallet: Float = 0.0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +55,14 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         Log.d("PREFERENCIAS", "onSaveInstanceState")
         outState.putString(NAME_KEY, name )
+        outState.putInt(AGE_KEY, age )
+        outState.putFloat(HEIGHT_KEY, height )
+        outState.putFloat(WALLET_KEY, wallet )
         outState?.run {
             putString(NAME_KEY, name)
+            putInt(AGE_KEY, age)
+            putFloat(HEIGHT_KEY, height)
+            putFloat(WALLET_KEY, wallet)
         }
 // call superclass to save any view hierarchy
         super.onSaveInstanceState(outState)
@@ -57,8 +73,10 @@ class MainActivity : AppCompatActivity() {
         Log.d("PREFERENCIAS", "onResume")
         if(TextUtils.isEmpty(name)){
             val miSharedPreferences = getSharedPreferences("PERSISTENCIA", MODE_PRIVATE)
-            name= miSharedPreferences.getString(NAME_KEY, "").toString()
-
+            name = miSharedPreferences.getString(NAME_KEY, "").toString()
+            age = miSharedPreferences.getInt(AGE_KEY, 0)
+            height = miSharedPreferences.getFloat(HEIGHT_KEY, 0.0f)
+            wallet = miSharedPreferences.getFloat(WALLET_KEY, 0.0f)
         }
 
         tvWelcome.text = name
@@ -88,17 +106,29 @@ class MainActivity : AppCompatActivity() {
 
     private fun inicializarVistas() {
         tvWelcome = findViewById(R.id.tvWelcome)
-        etName = findViewById(R.id.tilName)
+        etName = findViewById(R.id.etName)
         bnSave = findViewById(R.id.bnSave)
-        swToggle = findViewById(R.id.swToggle)
+        switchPrefs = findViewById(R.id.swPref)
+        etnAge = findViewById(R.id.etAge)
+        etHeight = findViewById(R.id.etHeight)
+        etWallet = findViewById(R.id.etWallet)
 
         bnSave.setOnClickListener {
             name = etName.text.toString()
+            age = etnAge.text.toString().toInt()
+            height = etHeight.text.toString().toFloat()
+            wallet = etWallet.text.toString().toFloat()
             cambiarTextoBienvenida(name)
             val miSharedPreferences = getSharedPreferences("PERSISTENCIA", MODE_PRIVATE)
             val editor = miSharedPreferences.edit()
             editor.putString(NAME_KEY, name)
+            editor.putInt(AGE_KEY, age)
+            editor.putFloat(HEIGHT_KEY, height)
+            editor.putFloat(WALLET_KEY, wallet)
             editor.apply()
+            val s = Intent(this, GameList::class.java)
+            startActivity(s)
+            finish()
         }
 
     }
