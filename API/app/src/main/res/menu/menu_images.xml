@@ -6,7 +6,6 @@
         android:id="@+id/optMenuListIMG"
         android:title="API"
         android:icon="@drawable/baseline_image_24"
-        app:showAsAction="ifRoom"
-        >
+        app:showAsAction="ifRoom">
     </item>
 </menu>
