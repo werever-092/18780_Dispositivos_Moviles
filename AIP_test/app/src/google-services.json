@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "738061200291",
+    "project_id": "aip-jackboys",
+    "storage_bucket": "aip-jackboys.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738061200291:android:6d125ee6558c50abd34816",
+        "android_client_info": {
+          "package_name": "edu.iest.aip_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738061200291-dcv45vtvp1kjk646ev5ro07ikf8somo9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDux62koNiJYAisY7XsKq6MZbUVSfyIyNY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738061200291-dcv45vtvp1kjk646ev5ro07ikf8somo9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
